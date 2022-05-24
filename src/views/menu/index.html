@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/css/menu/index.css">
+
+<div id="menu">
+    <div id="header">
+        <div id="top-bar">
+            <div id="home">
+                <span class="ti-home"></span>
+            </div>
+
+            <div id="search-bar">
+                <div id="search-btn">
+                    <span class="ti-search"></span>
+                </div>
+
+                <input type="text" placeholder="Tìm kiếm món ăn" class="input-text--search">
+            </div>
+        </div>
+
+        <div id="navigation">
+            <div class="type" active="true">Rice</div>
+            <div class="type" active="false">Beef</div>
+            <div class="type" active="false">Fried</div>
+            <div class="type" active="false">Pizza</div>
+            <div class="type" active="false">Drink</div>
+            <div class="type" active="false">Rice</div>
+            <div class="type" active="false">Beef</div>
+            <div class="type" active="false">Fried</div>
+        </div>
+    </div>
+
+    <div id="content">
+        {{#each docs}}
+        <div class="item" type="{{this.type}}">
+            <div class="img">
+                <img src="{{this.url}}">
+            </div>
+
+            <div class="info">
+                <div class="name">
+                    {{this.name}}
+                </div>
+                <div class="price">
+                    {{this.price}} đồng
+                </div>
+            </div>
+
+            <div class="select">
+                <div class="add btn" name="{{this.name}}">
+                    add
+                </div>
+
+                <div class="amount" name="{{this.name}}" amount="0">
+                    
+                </div>
+                
+                <div class="remove btn" name="{{this.name}}" amount="0">
+                    remove
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div id="cart" total="0">
+        <span class="ti-shopping-cart"></span>
+        <span class="text-view" total="0">Xem giỏ hàng</span>
+        <span class="ti-angle-right"></span>
+    </div>
+</div>
+
+<script src="/js/menu/index.js" type="module"></script>
