@@ -8,4 +8,5 @@ html {
     font-size: 10px;
     color: #363636;
     font-family: 'Roboto', sans-serif;
+    user-select: none;
 }
