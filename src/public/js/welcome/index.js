@@ -4,7 +4,6 @@ let id = getCookie("id")
 const home = location.origin + "/home"
 
 if (id == "") {
-    
     $("#submit button").click(() => {
         const str = "name=" + $("#name input").val()
         const create = location.origin + "/create"
@@ -15,6 +14,6 @@ if (id == "") {
         })
     })
 } else {
-    alert("OK")
+    alert("Hello")
     location.replace(home + "?id=" + id)
 }
