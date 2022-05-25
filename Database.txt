@@ -7,7 +7,7 @@
             if (err) {
                 console.log(err)
             }
-        });        
+        });
 		Menu.create({
             name: "Cơm chiên dương châu",
             type: "Rice",
