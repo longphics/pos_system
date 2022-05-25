@@ -14,6 +14,5 @@ if (id == "") {
         })
     })
 } else {
-    alert("Hello")
     location.replace(home + "?id=" + id)
 }
