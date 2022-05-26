@@ -12,8 +12,10 @@ $(document).ready(function () {
 
     // Set total from cookie
     const total = getCookie("total")
-    $("#cart .text-view").attr("total", total)
-    $("#cart").attr("total", total)
+    if (total != "") {
+        $("#cart .text-view").attr("total", total)
+        $("#cart").attr("total", total)
+    }
     
     // Click home button
     $("#home").click(function () {
@@ -32,7 +34,7 @@ $(document).ready(function () {
         $("#content .item[type='" + type + "']").css("display", "flex")
     })
 
-    // Click add / remove button
+    // Click add/remove button
     $(".select .btn").click(function () {
         // Check button
         let isAdd = true

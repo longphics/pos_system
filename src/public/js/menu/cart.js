@@ -1,7 +1,7 @@
 import { getCookies } from "../function/cookie.js"
 
-const data = getCookies("id");
+const data = getCookies("id", "total");
 
-data.forEach(function (data) {
-    alert(data.name + " " + data.value)
-})
+// data.forEach(function (data) {
+//     alert(data.name + ": " + data.value)
+// })
