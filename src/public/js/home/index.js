@@ -1,18 +1,22 @@
 $(document).ready(function () {
     $("#one").click(() => {
-        alert("Hello")
+        alert("Tính năng này chưa hỗ trợ")
     })
 
     $("#two").click(() => {
-        alert("Hello")
+        alert("Tính năng này chưa hỗ trợ")
     })
 
     $("#three").click(() => {
-        alert("Hello")
+        alert("Tính năng này chưa hỗ trợ")
     })
 
     $("#menu").click(() => {
         const menu = location.origin + "/menu"
         location.href = menu + location.search
+    })
+
+    $("#notice").click(() => {
+        alert("Tính năng này chưa hỗ trợ")
     })
 })
