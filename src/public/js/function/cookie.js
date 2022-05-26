@@ -28,12 +28,22 @@ function getCookie(cname) {
 
 function getCookies() {
     let result = []
-    const cookies = document.cookie.split(";");
+    const cookies = document.cookie.split("; ");
 
     cookies.forEach((cookie) => {
         let name = cookie.split("=")[0]
         let value = cookie.split("=")[1]
-        result.push({ name, value })
+        let isAccept = true
+
+        for(let i = 0; i < arguments.length; i++) {
+            if (name == arguments[i]) {
+                isAccept = false
+            }
+        }
+
+        if (isAccept) {
+            result.push({ name, value })
+        }
     })
 
     return result;

@@ -1,10 +1,19 @@
-import { setCookie } from "../function/cookie.js"
+import { setCookie, getCookie, getCookies } from "../function/cookie.js"
 
 $(document).ready(function () {
     // // Set amount from cookie
-    // const name =  $(".amount[value=1]").attr("name")
-    // alert(name)
-    // $(".amount[name='"+ name + "']").css("display", "block")
+    const cookies = getCookies("id", "total")
+    cookies.forEach((cookie) => {
+        const name = cookie.name
+        const amount = cookie.value
+        $(".select .amount[name='"+ name +"']").attr("amount", amount)
+        $(".select .remove[name='"+ name +"']").attr("amount", amount)
+    })
+
+    // Set total from cookie
+    const total = getCookie("total")
+    $("#cart .text-view").attr("total", total)
+    $("#cart").attr("total", total)
     
     // Click home button
     $("#home").click(function () {
@@ -56,6 +65,7 @@ $(document).ready(function () {
         // Update new total
         $("#cart .text-view").attr("total", total)
         $("#cart").attr("total", total)
+        setCookie("total", total, 1)
     })
 
     // Click cart button
