@@ -26,16 +26,14 @@ function getCookie(cname) {
     return "";
 }
 
-function getCookies(except) {
+function getCookies() {
     let result = []
     const cookies = document.cookie.split(";");
 
     cookies.forEach((cookie) => {
         let name = cookie.split("=")[0]
         let value = cookie.split("=")[1]
-        if (name != except) {
-            result.push({ name, value })
-        }
+        result.push({ name, value })
     })
 
     return result;
