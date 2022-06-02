@@ -2,15 +2,52 @@
 
 <div id="cart">
     <div id="header">
+        <div class="back">
+            <span class="material-icons">arrow_back_ios</span>
+        </div>
 
+        <div class="title">
+            Các món đã chọn
+        </div>
+
+        <div class="remove">
+            Xóa giỏ
+        </div>
+        
     </div>
 
     <div id="content">
+        {{#each docs}}
+        <div class="item" name="{{this.name}}" active="false">
+            <div class="img">
+                <img src="{{this.url}}">
+            </div>
 
+            <div class="info">
+                <div class="name">
+                    {{this.name}}
+                </div>
+                <div class="price" price="{{this.price}}" amount="0">
+                    {{this.price}} đồng
+                </div>
+            </div>
+
+            <div class="remove-item" name="{{this.name}}">
+                <img src="/img/menu/icon_item_remove.svg">
+            </div>
+        </div>
+        {{/each}}
+
+        <div id="total">
+            <div>Tổng tiền</div>
+            <div class="total-price" total-price="0"></div>
+        </div>
     </div>
 
-    <div id="send">
-        
+    <div id="footer">
+        <div id="send">
+            Gửi yêu cầu gọi món
+        </div>
     </div>
 </div>
 

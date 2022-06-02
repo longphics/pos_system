@@ -1,14 +1,143 @@
 #cart {
-    
+    height: 100vh;
+    /* background-color: #f5f5f5; */
 }
+
 #header {
     height: 52px;
     padding: 10px;
     display: flex;
+    border-bottom: 0.5px solid rgba(45,45,48,.1);
 }
+
+#header .back {
+    width: 32px;
+    height: 32px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header .back .material-icons {
+    color: rgb(247, 148, 30);
+    font-size: 1.8rem;
+    margin-left: 8px;
+}
+
+#header .title {
+    flex: 1;
+    font-size: 1.6rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header .remove {
+    min-width: 60px;
+    background-color: rgba(215, 84, 84, 0.1);
+    color: rgb(215, 84, 84);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #content {
-    
+    padding: 0px 10px;
+    height: calc(100vh - 52px - 77px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: scroll;
 }
+
+#content .item {
+    border-radius: 8px;
+    padding: 16px 0px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+
+#content .item[active="true"] {
+    display: flex;
+}
+
+#content .item .img {
+    width: 80px;
+    height: 64px;
+}
+
+#content .item .img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: solid 1px rgba(247, 148, 30, 0.2);
+}
+
+#content .item .info {
+    height: 64px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+#content .item .info .name {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#content .item .info .price {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgb(247, 148, 30);
+    margin-top: 10px;
+}
+
+#content .item .info .price::after {
+    content: " x " attr(amount);
+}
+
+#total {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0px;
+}
+
+#total div {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+#total .total-price::before {
+    content: attr(total-price) " đồng";
+}
+
+#footer {
+    padding: 16px;
+    position: sticky;
+    bottom: 0px;
+}
+
 #send {
-    
+    background-color: rgb(247, 148, 30);
+    height: 45px;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

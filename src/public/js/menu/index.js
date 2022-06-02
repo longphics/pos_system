@@ -1,7 +1,7 @@
 import { setCookie, getCookie, getCookies } from "../function/cookie.js"
 
 $(document).ready(function () {
-    // // Set amount from cookie
+    // Set amount from cookie
     const cookies = getCookies("id", "total")
     cookies.forEach((cookie) => {
         const name = cookie.name
@@ -73,6 +73,6 @@ $(document).ready(function () {
     // Click cart button
     $("#cart").click(function () {
         const cart = location.origin + "/menu/cart" + location.search
-        location.href = cart;
+        location.replace(cart)
     })
 })

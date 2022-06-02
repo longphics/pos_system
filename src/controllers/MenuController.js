@@ -17,7 +17,14 @@ class MenuController {
 
     // [GET] /menu/cart
     cart(req, res) {
-        res.render('menu/cart')
+        Menu.find({}, (err, docs) => {
+            if (docs.length == 0) {
+                createMenu()
+            } else {
+                docs = docs.map(doc => doc.toObject())
+                res.render('menu/cart', { docs })
+            }
+        })
     }
 }
 

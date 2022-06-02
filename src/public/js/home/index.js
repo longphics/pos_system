@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $("#menu").click(() => {
         const menu = location.origin + "/menu"
-        location.href = menu + location.search
+        location.replace(menu + location.search)
     })
 
     $("#notice").click(() => {
