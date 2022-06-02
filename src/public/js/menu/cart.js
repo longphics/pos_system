@@ -84,6 +84,6 @@ $(document).ready(function () {
 
     // Click send button
     $("#send").click(function () {
-        alert("Tính năng này chưa hỗ trợ")
+        alert("Tính năng này không hỗ trợ")
     })
 })
