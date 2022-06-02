@@ -19,7 +19,8 @@ $(document).ready(function () {
     
     // Click home button
     $("#home").click(function () {
-        history.back()
+        const home = location.origin + "/home" + location.search
+        location.replace(home)
     })
 
     // Click navigation

@@ -84,6 +84,24 @@ $(document).ready(function () {
 
     // Click send button
     $("#send").click(function () {
-        alert("Tính năng này không hỗ trợ")
+        let dishes = []
+
+        const cookies = getCookies("id", "total")
+        cookies.forEach(function (cookie) {
+            if (cookie.value != 0) {
+                let name = cookie.name;
+                let count = cookie.value;
+                dishes.push({name, count})
+            }
+        })
+        const send = location.origin + "/menu/cart/send" + location.search
+        $.post(send, dishes, (text) => {
+            alert(text);
+            setTimeout(() => {
+                const home = location.origin + "/home" + location.search
+                location.replace(home)
+            }, 1000);
+        })
+
     })
 })

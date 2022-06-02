@@ -6,4 +6,6 @@ router.get('/', menuController.index)
 
 router.get('/cart', menuController.cart)
 
+router.post('/cart/send', menuController.send)
+
 module.exports = router;

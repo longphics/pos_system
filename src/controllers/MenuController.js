@@ -26,6 +26,12 @@ class MenuController {
             }
         })
     }
+
+    // [GET] /menu/cart/send
+    send(req, res) {
+        console.log(req.body)
+        res.send("Bạn đã đặt món thành công!")
+    }
 }
 
 module.exports = new MenuController()
