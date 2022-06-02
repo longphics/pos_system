@@ -91,16 +91,28 @@ $(document).ready(function () {
             if (cookie.value != 0) {
                 let name = cookie.name;
                 let count = cookie.value;
-                dishes.push({name, count})
+                dishes.push({name: name, count: count})
             }
         })
+
+        // let sendObj = {dishes: dishes};
+
+        let sendStr = JSON.stringify(dishes);
         const send = location.origin + "/menu/cart/send" + location.search
-        $.post(send, dishes, (text) => {
+        $.post(send, sendStr, (text) => {
+            // Reset cookie
+            const cookies = getCookies("id", "total")
+            cookies.forEach((cookie) => {
+                setCookie(cookie.name, 0, 1)
+            })
+            setCookie("total", 0, 1)
+
+            // Alert
             alert(text);
-            setTimeout(() => {
-                const home = location.origin + "/home" + location.search
-                location.replace(home)
-            }, 1000);
+
+            // Redirect to home page
+            const home = location.origin + "/home" + location.search
+            location.replace(home)
         })
 
     })
