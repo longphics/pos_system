@@ -1,14 +1,6 @@
 import { setCookie, getCookie, getCookies, removeCookie } from "../function/cookie.js"
 
 $(document).ready(function () {
-    // Test cookie
-    // let resultStr = ""
-    // let results = getCookies()
-    // results.forEach((result) => {
-    //     resultStr += result[0] + " " + result[1] + "\n"
-    // })
-    // alert(resultStr)
-
     // Set item detail and total-price from cookie
     let total_price = $("#total .total-price").attr("total-price")
 
@@ -46,22 +38,6 @@ $(document).ready(function () {
 
             // Update amount attribute
             $("#content .item[name='" + name + "']" + " .info .price").attr("amount", "0")
-
-            // // Update total-price attribute
-            // let total_price = $("#total .total-price").attr("total-price")
-            // let price = $("#content .item[name='" + name + "']" + " .info .price").attr("price")
-            // let amount = $("#content .item[name='" + name + "']" + " .info .price").attr("amount")
-            // total_price = Number(total_price) - (Number(price) * Number(amount))
-            // $("#total .total-price").attr("total-price", total_price)
-
-            // // Update total cookie
-            // let total = getCookie("total")
-            // total = Number(total) - Number(amount)
-            // if (total < 1) {
-            //     removeCookie("total")
-            // } else {
-            //     setCookie("total", total)
-            // }
         })
 
         // Update total-price attribute
@@ -77,7 +53,6 @@ $(document).ready(function () {
         //     resultStr += result[0] + " " + result[1] + "\n"
         // })
         // alert(resultStr)
-
     })
 
     // Click remove-item button
@@ -107,14 +82,6 @@ $(document).ready(function () {
 
         // Update amount attribute
         $("#content .item[name='" + name + "']" + " .info .price").attr("amount", "0")
-
-        // Test cookie
-        // let resultStr = ""
-        // let results = getCookies()
-        // results.forEach((result) => {
-        //     resultStr += result[0] + " " + result[1] + "\n"
-        // })
-        // alert(resultStr)
     })
 
     // Click send button

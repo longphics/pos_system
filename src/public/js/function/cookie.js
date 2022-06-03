@@ -9,8 +9,26 @@ function getCookie(cname) {
 }
 
 function getCookies() {
-    let cookieObj = Cookies.get()
-    return Object.entries(cookieObj)
+    let result = []
+    let cookies = Object.entries(Cookies.get())
+
+    cookies.forEach((cookie) => {
+        let name = cookie[0]
+        let value = cookie[1]
+        let isAccept = true
+
+        for(let i = 0; i < arguments.length; i++) {
+            if (name == arguments[i]) {
+                isAccept = false
+            }
+        }
+
+        if (isAccept) {
+            result.push([ name, value ])
+        }
+    })
+
+    return result
 }
 
 function removeCookie(cname) {
@@ -44,7 +62,7 @@ export { setCookie, getCookie, getCookies, removeCookie }
 //         }
 //     }
 
-//     return "";
+//     return ""
 // }
 
 // function getCookies() {
@@ -67,7 +85,7 @@ export { setCookie, getCookie, getCookies, removeCookie }
 //         }
 //     })
 
-//     return result;
+//     return result
 // }
 
 // function removeCookie(cname) {

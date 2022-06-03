@@ -77,14 +77,6 @@ $(document).ready(function () {
         } else {
             setCookie("total", total)
         }
-
-        // Test cookie
-        // let resultStr = ""
-        // let results = getCookies()
-        // results.forEach((result) => {
-        //     resultStr += result[0] + " " + result[1] + "\n"
-        // })
-        // alert(resultStr)
     })
 
     // Click cart button
