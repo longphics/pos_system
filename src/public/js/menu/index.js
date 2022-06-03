@@ -1,23 +1,18 @@
-import { setCookie, getCookie, getCookies, removeCookie, setNewCookie, getNewCookie } from "../function/cookie.js"
+import { setCookie, getCookie, getCookies, removeCookie } from "../function/cookie.js"
 
 $(document).ready(function () {
-    //////////////////////////////////////////
-    setNewCookie();
-    alert(getNewCookie());
-    //////////////////////////////////////////
-
     // Set amount from cookie
     const cookies = getCookies("id", "total")
     cookies.forEach((cookie) => {
-        const name = cookie.name
-        const amount = cookie.value
+        const name = cookie[0]
+        const amount = cookie[1]
         $(".select .amount[name='"+ name +"']").attr("amount", amount)
         $(".select .remove[name='"+ name +"']").attr("amount", amount)
     })
 
     // Set total from cookie
     const total = getCookie("total")
-    if (total != "") {
+    if (total != undefined) {
         $("#cart .text-view").attr("total", total)
         $("#cart").attr("total", total)
     }
@@ -63,7 +58,7 @@ $(document).ready(function () {
         if (amount < 1) {
             removeCookie(name)
         } else {
-            setCookie(name, amount, 168)
+            setCookie(name, amount)
         }
 
         // Get new total
@@ -80,16 +75,16 @@ $(document).ready(function () {
         if (total < 1) {
             removeCookie("total")
         } else {
-            setCookie("total", total, 168)
+            setCookie("total", total)
         }
 
         // Test cookie
-        let resultStr = ""
-        let results = getCookies()
-        results.forEach((result) => {
-            resultStr += result.name + " " + result.value + "\n"
-        })
-        alert(resultStr)
+        // let resultStr = ""
+        // let results = getCookies()
+        // results.forEach((result) => {
+        //     resultStr += result[0] + " " + result[1] + "\n"
+        // })
+        // alert(resultStr)
     })
 
     // Click cart button

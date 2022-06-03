@@ -2,12 +2,12 @@ import { setCookie, getCookie, getCookies, removeCookie } from "../function/cook
 
 $(document).ready(function () {
     // Test cookie
-    let resultStr = ""
-    let results = getCookies()
-    results.forEach((result) => {
-        resultStr += result.name + " " + result.value + "\n"
-    })
-    alert(resultStr)
+    // let resultStr = ""
+    // let results = getCookies()
+    // results.forEach((result) => {
+    //     resultStr += result[0] + " " + result[1] + "\n"
+    // })
+    // alert(resultStr)
 
     // Set item detail and total-price from cookie
     let total_price = $("#total .total-price").attr("total-price")
@@ -15,12 +15,12 @@ $(document).ready(function () {
     const cookies = getCookies("id", "total")
     cookies.forEach(function (cookie) {
         // Set item detail
-        $("#content .item[name='" + cookie.name + "']").attr("active", "true")
-        $("#content .item[name='" + cookie.name + "']" + " .info .price").attr("amount", cookie.value)
+        $("#content .item[name='" + cookie[0] + "']").attr("active", "true")
+        $("#content .item[name='" + cookie[0] + "']" + " .info .price").attr("amount", cookie[1])
 
         // Set total-price
-        let price = $("#content .item[name='" + cookie.name + "']" + " .info .price").attr("price")
-        let amount = $("#content .item[name='" + cookie.name + "']" + " .info .price").attr("amount")
+        let price = $("#content .item[name='" + cookie[0] + "']" + " .info .price").attr("price")
+        let amount = $("#content .item[name='" + cookie[0] + "']" + " .info .price").attr("amount")
         total_price = Number(total_price) + (Number(price) * Number(amount))
     })
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
         cookies.forEach(function (cookie) {
             // Update remove status
-            let name = cookie.name
+            let name = cookie[0]
             $("#content .item[name='" + name + "']").attr("active", "false")
 
             // Remove from cookie
@@ -71,12 +71,12 @@ $(document).ready(function () {
         removeCookie("total")
 
         // Test cookie
-        let resultStr = ""
-        let results = getCookies()
-        results.forEach((result) => {
-            resultStr += result.name + " " + result.value + "\n"
-        })
-        alert(resultStr)
+        // let resultStr = ""
+        // let results = getCookies()
+        // results.forEach((result) => {
+        //     resultStr += result[0] + " " + result[1] + "\n"
+        // })
+        // alert(resultStr)
 
     })
 
@@ -109,12 +109,12 @@ $(document).ready(function () {
         $("#content .item[name='" + name + "']" + " .info .price").attr("amount", "0")
 
         // Test cookie
-        let resultStr = ""
-        let results = getCookies()
-        results.forEach((result) => {
-            resultStr += result.name + " " + result.value + "\n"
-        })
-        alert(resultStr)
+        // let resultStr = ""
+        // let results = getCookies()
+        // results.forEach((result) => {
+        //     resultStr += result[0] + " " + result[1] + "\n"
+        // })
+        // alert(resultStr)
     })
 
     // Click send button
@@ -123,11 +123,9 @@ $(document).ready(function () {
 
         const cookies = getCookies("id", "total")
         cookies.forEach(function (cookie) {
-            if (cookie.value != 0) {
-                let name = cookie.name;
-                let count = cookie.value;
-                dishes.push({name: name, count: count})
-            }
+            let name = cookie[0];
+            let count = cookie[1];
+            dishes.push({name: name, count: count})
         })
 
         // let sendObj = {dishes: dishes};
@@ -138,9 +136,9 @@ $(document).ready(function () {
             // Reset cookie
             const cookies = getCookies("id", "total")
             cookies.forEach((cookie) => {
-                setCookie(cookie.name, 0, 1)
+                removeCookie(cookie[0])
             })
-            setCookie("total", 0, 1)
+            removeCookie("total")
 
             // Alert
             alert(text);

@@ -3,13 +3,13 @@ import { setCookie, getCookie } from "../function/cookie.js"
 let id = getCookie("id")
 const home = location.origin + "/home"
 
-if (id == "") {
+if (id == undefined) {
     $("#submit button").click(() => {
         const str = "name=" + $("#name input").val()
         const create = location.origin + "/create"
 
         $.post(create, str, (id) => {
-            setCookie("id", id, 168)
+            setCookie("id", id)
             location.replace(home + "?id=" + id)
         })
     })
