@@ -1,4 +1,4 @@
-import { setCookie, getCookie, getCookies } from "../function/cookie.js"
+import { setCookie, getCookie, getCookies, removeCookie } from "../function/cookie.js"
 
 $(document).ready(function () {
     // Set amount from cookie
@@ -55,7 +55,11 @@ $(document).ready(function () {
         // Update new amount
         $(".select .amount[name='"+ name +"']").attr("amount", amount)
         $(".select .remove[name='"+ name +"']").attr("amount", amount)
-        setCookie(name, amount, 1)
+        if (amount < 1) {
+            removeCookie(name)
+        } else {
+            setCookie(name, amount, 168)
+        }
 
         // Get new total
         let total = $("#cart .text-view").attr("total")
@@ -68,7 +72,19 @@ $(document).ready(function () {
         // Update new total
         $("#cart .text-view").attr("total", total)
         $("#cart").attr("total", total)
-        setCookie("total", total, 1)
+        if (total < 1) {
+            removeCookie("total")
+        } else {
+            setCookie("total", total, 168)
+        }
+
+        // Test cookie
+        let resultStr = ""
+        let results = getCookies()
+        results.forEach((result) => {
+            resultStr += result.name + " " + result.value + "\n"
+        })
+        alert(resultStr)
     })
 
     // Click cart button

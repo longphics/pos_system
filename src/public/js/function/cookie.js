@@ -49,4 +49,12 @@ function getCookies() {
     return result;
 }
 
-export { setCookie, getCookie, getCookies }
+function removeCookie(cname) {
+    const expires_date = new Date()
+    expires_date.setTime(expires_date.getTime() - (48 * 60 * 60 * 1000))
+
+    const expires = "expires=" + expires_date.toUTCString()
+    document.cookie = cname + "=" + "removed" + ";" + expires + ";path=/"
+}
+
+export { setCookie, getCookie, getCookies, removeCookie }

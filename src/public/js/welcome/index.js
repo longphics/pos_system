@@ -9,7 +9,7 @@ if (id == "") {
         const create = location.origin + "/create"
 
         $.post(create, str, (id) => {
-            setCookie("id", id, 1)
+            setCookie("id", id, 168)
             location.replace(home + "?id=" + id)
         })
     })
