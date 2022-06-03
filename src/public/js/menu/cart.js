@@ -45,14 +45,6 @@ $(document).ready(function () {
 
         // Remove total cookie
         removeCookie("total")
-
-        // Test cookie
-        // let resultStr = ""
-        // let results = getCookies()
-        // results.forEach((result) => {
-        //     resultStr += result[0] + " " + result[1] + "\n"
-        // })
-        // alert(resultStr)
     })
 
     // Click remove-item button

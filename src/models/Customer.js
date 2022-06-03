@@ -7,21 +7,6 @@ const Customer = new Schema ({
         require: true,
     },
 
-    cart: {
-        dishes: [{
-            name: {
-                type: String,
-                require: true,
-            },
-
-            count: {
-                type: Number,
-                require: true,
-                min: 1,
-            },
-        }]
-    },
-
     orders: [{
         dishes: [{
             name: {
