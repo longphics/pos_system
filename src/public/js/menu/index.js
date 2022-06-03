@@ -1,6 +1,11 @@
-import { setCookie, getCookie, getCookies, removeCookie } from "../function/cookie.js"
+import { setCookie, getCookie, getCookies, removeCookie, setNewCookie, getNewCookie } from "../function/cookie.js"
 
 $(document).ready(function () {
+    //////////////////////////////////////////
+    setNewCookie();
+    alert(getNewCookie());
+    //////////////////////////////////////////
+
     // Set amount from cookie
     const cookies = getCookies("id", "total")
     cookies.forEach((cookie) => {

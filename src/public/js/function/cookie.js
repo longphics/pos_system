@@ -1,3 +1,5 @@
+import Cookies from './js.cookie.min.mjs'
+
 function setCookie(cname, cvalue, expires_hour) {
     const expires_date = new Date()
     expires_date.setTime(expires_date.getTime() + (expires_hour * 60 * 60 * 1000))
@@ -57,4 +59,12 @@ function removeCookie(cname) {
     document.cookie = cname + "=" + "removed" + ";" + expires + ";path=/"
 }
 
-export { setCookie, getCookie, getCookies, removeCookie }
+function setNewCookie() {
+    Cookies.set('tên', 'Lê Long Phi')
+}
+
+function getNewCookie() {
+    return Cookies.get('tên')
+}
+
+export { setCookie, getCookie, getCookies, removeCookie, setNewCookie, getNewCookie }
